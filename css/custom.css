@@ -1,0 +1,323 @@
+/* Global Styling: Font modern, background gradient untuk tampilan menarik. */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Gradient subtle, ganti warna jika perlu */
+    margin: 0;
+    overflow-x: hidden; /* Hindari scroll horizontal */
+}
+
+/* Navbar: Fixed-top dengan efek blur & shadow untuk modern look. */
+.navbar {
+    backdrop-filter: blur(10px); /* Efek kaca buram */
+    background-color: rgba(0, 0, 0, 0.8) !important; /* Semi-transparan */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700; /* Bold */
+    color: #fff !important;
+    transition: transform 0.2s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.02);
+}
+
+.nav-link {
+    color: #fff !important;
+    transition: all 0.2s;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 8px 12px;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.dropdown-menu.dropdown-menu-dark {
+    background-color: rgba(33, 37, 41, 0.9); /* Darker dropdown */
+    backdrop-filter: blur(5px);
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+    color: #f8f9fa !important;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(75, 192, 192, 0.7) !important; /* Warna hover yang lebih cerah */
+    color: #fff !important;
+}
+
+/* Sidebar (Offcanvas) Styling: Efek blur & shadow untuk panel layers. */
+.offcanvas {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    border-right: 1px solid #e9ecef;
+    width: 320px; /* Lebar sidebar */
+}
+
+.offcanvas-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.offcanvas-body {
+    max-height: calc(100vh - 100px); /* Sesuaikan tinggi agar tidak tumpang tindih dengan header/footer */
+    overflow-y: auto; /* Scroll jika banyak layers */
+    padding: 1rem;
+}
+
+#layersContainer .leaflet-control-layers {
+    background: transparent !important; /* Hilangkan background default Leaflet */
+    border: none !important;
+    box-shadow: none !important;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#layersContainer .leaflet-control-layers-list {
+    padding: 0;
+}
+
+#layersContainer .leaflet-control-layers-base,
+#layersContainer .leaflet-control-layers-overlays {
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#layersContainer .leaflet-control-layers-separator {
+    margin: 10px 0;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Peta Styling: Full-screen dengan rounded corners & shadow. */
+#map {
+    border-radius: 0; /* Hapus border-radius jika ingin full-screen */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05); /* Inner shadow subtle */
+    transition: box-shadow 0.3s;
+    position: relative; /* Penting untuk positioning elemen di dalamnya */
+}
+
+#map:hover {
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Controls Leaflet: Penempatan Modern (zoom kiri bawah, scale kanan bawah) */
+.leaflet-control-zoom {
+    position: absolute !important; /* Override default Leaflet */
+    top: 100px;
+    bottom: 10px !important;
+    left: 1px !important;
+    right: auto !important;
+    border-radius: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    margin-top: 50px; /* memberi jarak dari kontrol lain */
+}
+.leaflet-control-measure {
+       margin-top: 100px; /* buat jarak lebih besar */
+       position: absolute;
+       top: 50px;
+   }
+
+.leaflet-control-scale {
+    position: absolute !important; /* Override default Leaflet */
+    top: auto !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Chart & Table Containers (dari kode asli Anda, disesuaikan untuk modern look) */
+.chart-container, .table-container {
+    position: absolute;
+    background-color: white;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 5px;
+    z-index: 1100;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    display: none; /* Awalnya tersembunyi */
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.chart-container {
+    width: 100%; /* Lebih responsif */
+    max-width: 1000px;
+    height: auto;
+    top: 90px; /* Di bawah navbar */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.table-container {
+    width: 100%; /* Lebih responsif */
+    max-width: 900px;
+    top: 70px; /* Di bawah navbar */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.chart-container h3, .table-container h3 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Existing CSS for close buttons */
+.chart-close-btn, .table-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(16, 16, 16, 0.453);
+    padding: 2px 10px; /* Keep this for initial spacing, adjust if needed */
+    border-radius: 5px;
+    font-size: 1.2rem; /* Keep this for initial size, adjust if needed */
+    color: #f8f5f5;
+    z-index: 1000;
+
+    /* New/Modified properties for 'X' symbol */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Indicate it's clickable */
+    font-weight: bold; /* Make the 'X' symbol bolder */
+    line-height: 1; /* Helps vertically center the 'X' */
+    width: 30px; /* Fixed width for a square button */
+    height: 30px; /* Fixed height for a square button */
+    display: flex; /* Use flexbox to perfectly center the 'X' */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition for hover effects */
+}
+
+.chart-close-btn:hover, .table-close-btn:hover {
+    color: #ffffff; /* Lighter color on hover */
+    background-color: rgba(16, 16, 16, 0.6); /* Slightly darker background on hover */
+}
+
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.table-container th, .table-container td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: left;
+}
+
+.table-container th {
+    background-color: #e9ecef;
+    color: #333;
+    text-align: center;
+    font-weight: 500;
+}
+
+.table-container tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    .navbar-nav .nav-link {
+        padding: 8px 10px;
+    }
+    .offcanvas {
+        width: 80% !important; /* Sidebar lebih lebar di mobile */
+    }
+    .chart-container, .table-container {
+        width: 95%;
+        left: 2.5%;
+        transform: translateX(0);
+        top: 60px;
+        padding: 10px;
+    }
+    .chart-container h3, .table-container h3 {
+        font-size: 1.1rem;
+    }
+    .table-container table {
+        font-size: 10px;
+    }
+    .leaflet-control-zoom, .leaflet-control-scale {
+        margin: 5px;
+        bottom: 5px !important;
+    }
+}
+
+/* Override qgis2web default styles yang mungkin konflik */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-popup-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaflet-popup-content th, .leaflet-popup-content td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #eee;
+}
+
+.leaflet-popup-content th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+            .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .login-box input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 50%;
+	    position: relative;
+        }
+
+        .login-box input[type="submit"] {
+            padding: 10px;
+            width: 30%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
